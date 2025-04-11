@@ -1,0 +1,28 @@
+# version: '3.9'
+
+# services:
+#   web:
+#     image: st124196_a2:latest
+  
+#     container_name: car_price_app_dev
+#     ports:
+#       - "5000:5000"  # Local testing on port 5000
+#     volumes:
+#       - .:/app  # Enable live code updates
+#     restart: unless-stopped
+
+version: '3.9'
+
+services:
+  dev:
+    image: aikezz/st124196_a2:latest  # ✅ Ensures correct tagging
+    ports:
+      - "5030:5030"
+    build:
+      context: .
+      dockerfile: Dockerfile  # ✅ Uses the correct Dockerfile
+    
+    
+    command: python3 app.py
+
+ 

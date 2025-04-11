@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car Price Class Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input {
+            padding: 5px;
+            width: 300px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #2a9df4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            width: fit-content;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h2>🚘 Car Price Category Prediction</h2>
+    <form method="POST" action="/predict">
+        <label for="year">Manufacture Year:</label>
+        <input type="number" name="year" id="year" required>
+
+        <label for="mileage">Mileage (kmpl):</label>
+        <input type="number" name="mileage" id="mileage" step="0.1" required>
+
+        <label for="max_power">Max Power (bhp):</label>
+        <input type="number" name="max_power" id="max_power" step="0.1" required>
+
+        <button type="submit">Predict Price Range</button>
+    </form>
+
+    {% if prediction is not none %}
+        <div class="result">
+            <strong>{{ prediction }}</strong>
+        </div>
+    {% endif %}
+</body>
+</html>
